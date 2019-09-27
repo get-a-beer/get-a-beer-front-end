@@ -6,11 +6,19 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeaderComponent } from './header/header.component';
+import { CervejaComponent } from './cerveja/cerveja.component';
+import { CervejariaComponent } from './cervejaria/cervejaria.component';
+import { VendaComponent } from './venda/venda.component';
+import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CervejaComponent,
+    CervejariaComponent,
+    VendaComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
