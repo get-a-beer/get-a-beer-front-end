@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,4 +13,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  login(){
+    console.log("login")
+  }
 }
