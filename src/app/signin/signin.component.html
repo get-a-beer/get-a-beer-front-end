@@ -19,7 +19,7 @@
                     <h1 class="signin-title">Cadastrar</h1>
                 </div>
 				<div class="d-flex justify-content-center form_container">
-					<form>
+					<form id="regForm">
                         <div class="tab">
                             <div class="row">
                                 <div class="col">
@@ -27,7 +27,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <input type="text" name="" class="form-control input_user" value="" placeholder="Nome de usuario" required>
+                                        <input type="text" name="username" class="form-control input_user" value="" placeholder="Nome de usuario" required>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -35,7 +35,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                                         </div>
-                                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Senha" required>
+                                        <input type="password" name="senha" class="form-control input_pass" value="" placeholder="Senha" required>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-at"></i></span>
                                         </div>
-                                        <input type="email" name="" class="form-control input_user" value="" placeholder="Email" required>
+                                        <input type="email" name="email" class="form-control input_user" value="" placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -53,7 +53,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                                         </div>
-                                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Confirmar senha" required>
+                                        <input type="password" name="confSenha" class="form-control input_pass" value="" placeholder="Confirmar senha" required>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="far fa-address-card"></i></span>
                                         </div>
-                                        <input type="text" name="" class="form-control input_user" value="" placeholder="Nome completo" required>
+                                        <input type="text" name="nomeCompleto" class="form-control input_user" value="" placeholder="Nome completo" required>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -71,27 +71,27 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="far fa-calendar"></i></span>
                                         </div>
-                                        <input type="date" name="" class="form-control input_pass" value="" placeholder="Data de nascimento" required>
+                                        <input type="date" name="dtNascimento" class="form-control input_pass" value="" placeholder="Data de nascimento" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="">
+                        <div class="tab">
                             <div class="row">
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                         </div>
-                                        <input type="text" name="" class="form-control input_user" value="" placeholder="CEP" required>
+                                        <input type="text" name="cep" class="form-control input_user" value="" placeholder="CEP" required>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-2">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                            <span class="input-group-text"><i class=""></i></span>
                                         </div>
-                                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Logradouro" required>
+                                        <input type="text" name="logradouro" class="form-control input_pass" value="" placeholder="Logradouro" required>
                                     </div>
                                 </div>
                             </div>
@@ -99,17 +99,17 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                            <span class="input-group-text"><i class=""></i></span>
                                         </div>
-                                        <input type="email" name="" class="form-control input_user" value="" placeholder="Bairro" required>
+                                        <input type="text" name="bairro" class="form-control input_user" value="" placeholder="Bairro" required>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-2">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                            <span class="input-group-text"><i class=""></i></span>
                                         </div>
-                                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Cidade" required>
+                                        <input type="text" name="cidade" class="form-control input_pass" value="" placeholder="Cidade" required>
                                     </div>
                                 </div>
                             </div>
@@ -117,30 +117,35 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="far fa-address-card"></i></span>
+                                            <span class="input-group-text"><i class=""></i></span>
                                         </div>
-                                        <input type="text" name="" class="form-control input_user" value="" placeholder="Complemento" required>
+                                        <input type="text" name="complemento" class="form-control input_user" value="" placeholder="Complemento" required>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="input-group mb-2">
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                                            <span class="input-group-text"><i class=""></i></span>
                                         </div>
-                                        <input type="date" name="" class="form-control input_pass" value="" placeholder="Data de nascimento" required>
+                                        <input type="text" name="uf" class="form-control input_pass" value="" placeholder="UF" required>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <div class="next_button">
+                                <button type="button" class="btn login_btn" id="prevBtn" (click)="nextPrev(-1)">Voltar</button>
+                                <button type="button" class="btn login_btn" id="nextBtn" (click)="nextPrev(1)">Próximo</button>
+                            </div>
+                        </div>
+                        <div class="stepPos">
+                            <span class="step"></span>
+                            <span class="step"></span>
                         </div>
                     </form>
 				</div>
-                <div class="d-flex justify-content-center mt-3 login_container">
-                    <div class="next_button">
-                        <button type="button" name="button" class="btn login_btn">Finalizar</button>
-                    </div>
-                </div>
 			</div>
 		</div>
-	</div>
+    </div>
 </body>
 </html>

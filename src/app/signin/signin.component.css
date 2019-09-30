@@ -55,6 +55,7 @@
 }
 .next_button {
     width: 60%;
+    overflow: auto;
 }
 
 .tab {
@@ -63,6 +64,10 @@
 
 #prevBtn {
     background-color: #bbbbbb;
+}
+.stepPos {
+    text-align: center;
+    margin-top: 40px;
 }
 
 .step {
@@ -77,9 +82,9 @@
 }
 
 .step.active {
-opacity: 1;
+    opacity: 1;
 }
 
 .step.finish {
-background-color: #4CAF50;
+    background-color: #4CAF50;
 }
