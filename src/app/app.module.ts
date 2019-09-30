@@ -7,14 +7,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { SiginComponent } from './sigin/sigin.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    SiginComponent
+    SigninComponent
   ],
   imports: [
     BrowserModule,
