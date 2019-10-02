@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { ViaCepService } from '../providers/viacep.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  
+  //private viacep: ViaCepService
 
   ngOnInit() {
+    const viacep: ViaCepService;
   }
 
   login(){
-    console.log("login")
+    console.log(viacep.getCep(123));
   }
 }
