@@ -10,6 +10,7 @@ import { CervejaComponent } from './cerveja/cerveja.component';
 import { CervejariaComponent } from './cervejaria/cervejaria.component';
 import { VendaComponent } from './venda/venda.component';
 import { Error404Component } from './error404/error404.component';
+import { CaroseulComponent } from './caroseul/caroseul.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Error404Component } from './error404/error404.component';
     CervejaComponent,
     CervejariaComponent,
     VendaComponent,
-    Error404Component
+    Error404Component,
+    CaroseulComponent
   ],
   imports: [
     BrowserModule,

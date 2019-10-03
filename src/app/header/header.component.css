@@ -10,24 +10,26 @@
     margin-left: 20%
 }
 
-.header-perfil img{
-    margin-top: 10%;
-    margin-left: 30%;
+.header-perfil i{
+    padding-top: 50px;
+    color: #ffffff;
 }
 
 .app-header input{
     margin-top: 40px;
     border-radius: 5px;
-    width: 95%;
+    width: 85%;
     height: 40%;
 }
 
 .header-input-search{
     height: 60%;
+    padding-left: 10%;
 }
 
 .header-menu{
     height: 20%;
+    padding-left: 10%;
 }
 
 .navbar{
@@ -41,7 +43,7 @@
 .nav-item{
     width: 30%;
     border-radius: 5%;
-    margin: 5px;
+    padding: 0 0px;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
