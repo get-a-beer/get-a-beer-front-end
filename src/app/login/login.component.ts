@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+import { AuthService } from '../providers/auth.service';
+import { Login } from '../model/login';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,26 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  loginModel: Login;
+  loginForm;
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {  
   }
 
-  login(){
-    console.log("login")
+  constructor(
+    private auth: AuthService,
+    private formBuilder: FormBuilder,
+  ){
+    this.loginForm = this.formBuilder.group({
+      username: '',
+      password: ''
+    })
+  }
+  
+  onSubmit(loginData: Login){
+    //console.warn('Seu login foi:', loginData)
+    this.auth.login(loginData).subscribe((data: Login) => this.loginModel = {...data});
+    console.log(this.loginModel)
   }
 }
