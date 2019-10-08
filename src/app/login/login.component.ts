@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ViaCepService } from '../providers/viacep.service';
+import { FormBuilder } from '@angular/forms';
+import { AuthService } from '../providers/auth.service';
+import { Login } from '../model/login';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +10,25 @@ import { ViaCepService } from '../providers/viacep.service';
 })
 export class LoginComponent implements OnInit {
   
-  //private viacep: ViaCepService
+  loginModel: Login;
+  loginForm;
 
-  ngOnInit() {
-    const viacep: ViaCepService;
+  ngOnInit() {  
   }
 
-  login(){
-    console.log(viacep.getCep(123));
+  constructor(
+    private auth: AuthService,
+    private formBuilder: FormBuilder,
+  ){
+    this.loginForm = this.formBuilder.group({
+      username: '',
+      password: ''
+    })
+  }
+  
+  onSubmit(loginData: Login){
+    //console.warn('Seu login foi:', loginData)
+    this.auth.login(loginData).subscribe((data: Login) => this.loginModel = {...data});
+    console.log(this.loginModel)
   }
 }

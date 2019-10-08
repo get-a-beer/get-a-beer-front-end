@@ -1,22 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Viacep } from '../model/viacep';
+import { Login } from '../model/login';
 
 @Injectable()
-export class ViaCepService{
+export class AuthService{
     
     constructor(private http: HttpClient){}
     
-    getCep(cep: number): Observable<Viacep>{
-        const api = `https://viacep.com.br/ws/${cep}/json/`;
-        return this.http.get<Viacep>(api).pipe(
-            retry(1),
-            catchError(this.errorHandl)
-        );
+    login(auth: Login): Observable<Login>{
+      const api = `https://ptsv2.com/t/rlyxg-1570570670/post`;
+      return this.http.post<Login>(api, auth).pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      );
     }
-
+    
     errorHandl(error) {
         let errorMessage = '';
         if(error.error instanceof ErrorEvent) {
