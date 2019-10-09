@@ -24,7 +24,7 @@ import { AuthService } from './providers/auth.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
     HeaderComponent,
     CervejaComponent,
     CervejariaComponent,
