@@ -9,6 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
+import { CervejaComponent } from './cerveja/cerveja.component';
+import { CervejariaComponent } from './cervejaria/cervejaria.component';
+import { VendaComponent } from './venda/venda.component';
+import { Error404Component } from './error404/error404.component';
+import { CaroseulComponent } from './caroseul/caroseul.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 
@@ -18,9 +23,14 @@ import { AuthService } from './providers/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     LoginComponent,
     SigninComponent
+    HeaderComponent,
+    CervejaComponent,
+    CervejariaComponent,
+    VendaComponent,
+    Error404Component,
+    CaroseulComponent
   ],
   imports: [
     BrowserModule,
