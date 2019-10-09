@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'cervejas', component: CervejaComponent},
   {path: 'cervejarias', component: CervejariaComponent},
   { path: 'prevenda', component: VendaComponent},
-  { path: '**', component: Error404Component}
+  { path: '**', component: Error404Component},
 ];
 
 @NgModule({
