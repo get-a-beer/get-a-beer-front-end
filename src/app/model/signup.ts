@@ -1,7 +1,9 @@
 export interface Signup{
-    username: string,
+    usuario: string,
     email: string,
-    fullName: string,
-    password: string,
-    birthDate: Date
+    nome: string,
+    senha: string,
+    dataNascimento: Date,
+    cpf: string,
+    telefone: string
 }

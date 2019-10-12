@@ -5,13 +5,13 @@ import { retry, catchError } from 'rxjs/operators';
 import { Signup } from '../model/signup';
 
 @Injectable()
-export class AuthService{
+export class SignupService{
     
     constructor(private http: HttpClient){}
     
-    login(auth: Signup): Observable<Signup>{
-      const api = `https://ptsv2.com/t/rlyxg-1570570670/post`;
-      return this.http.post<Signup>(api, auth).pipe(
+    signup(body: Signup): Observable<Signup>{
+      const api = `http://api-get-beer.herokuapp.com/cliente`;
+      return this.http.post<Signup>(api, body).pipe(
         retry(1),
         catchError(this.errorHandl)
       );

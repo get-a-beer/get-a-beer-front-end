@@ -20,6 +20,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
+import { SignupService } from './providers/signup.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AuthService } from './providers/auth.service';
   ],
   providers: [
     ViaCepService,
-    AuthService
+    AuthService,
+    SignupService
   ],
   bootstrap: [AppComponent]
 })
