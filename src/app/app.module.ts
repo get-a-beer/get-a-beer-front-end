@@ -8,14 +8,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HeaderComponent } from './header/header.component';
-import { CervejaComponent } from './cerveja/cerveja.component';
-import { CervejariaComponent } from './cervejaria/cervejaria.component';
-import { VendaComponent } from './venda/venda.component';
-import { Error404Component } from './error404/error404.component';
-import { CaroseulComponent } from './caroseul/caroseul.component';
-import { LoginComponent } from './login/login.component';
-import { SigninComponent } from './signin/signin.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CaroseulComponent } from './components/caroseul/caroseul.component';
+
+import { CervejaComponent } from './pages/cerveja/cerveja.component';
+import { CervejariaComponent } from './pages/cervejaria/cervejaria.component';
+import { VendaComponent } from './pages/venda/venda.component';
+import { Error404Component } from './pages/error404/error404.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
@@ -24,7 +25,7 @@ import { AuthService } from './providers/auth.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    SigninComponent,
+    SignupComponent,
     HeaderComponent,
     CervejaComponent,
     CervejariaComponent,
