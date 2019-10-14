@@ -2,17 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Login } from '../model/login';
-import { JwtToken } from '../model/jwtToken';
+import { Cliente } from '../model/cliente';
 
 @Injectable()
-export class AuthService{
+export class ClienteService{
     
     constructor(private http: HttpClient){}
     
-    login(auth: Login): Observable<JwtToken>{
-      const api = `http://api-get-beer.herokuapp.com/auth/login`;
-      return this.http.post<JwtToken>(api, auth).pipe(
+    create(body: Cliente): Observable<Cliente>{
+      const api = `http://api-get-beer.herokuapp.com/cliente`;
+      return this.http.post<Cliente>(api, body).pipe(
         retry(1),
         catchError(this.errorHandl)
       );
@@ -27,7 +26,7 @@ export class AuthService{
           // Get server-side error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        //console.log(errorMessage);
+        console.log(errorMessage);
         return throwError(errorMessage);
      }
 }
