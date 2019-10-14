@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(loginData: Login){
-    this.auth.login(loginData).subscribe(this.redirectHandler, this.errorHandler);
+    this.auth.login(loginData).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this));
   }
 
   redirectHandler(data: JwtToken){
