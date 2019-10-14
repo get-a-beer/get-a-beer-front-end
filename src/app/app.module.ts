@@ -20,7 +20,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
-import { SignupService } from './providers/signup.service';
+import { ClienteService } from './providers/cliente.service';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
@@ -48,7 +48,7 @@ import { HomeComponent } from './pages/home/home.component';
   providers: [
     ViaCepService,
     AuthService,
-    SignupService
+    ClienteService
   ],
   bootstrap: [AppComponent]
 })

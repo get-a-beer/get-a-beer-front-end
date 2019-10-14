@@ -1,4 +1,4 @@
-export interface Signup{
+export interface Cliente{
     usuario: string,
     email: string,
     nome: string,

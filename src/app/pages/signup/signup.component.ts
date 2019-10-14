@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { SignupService } from '../../providers/signup.service';
-import { Signup } from '../../model/signup';
+import { ClienteService } from '../../providers/cliente.service';
+import { Cliente } from '../../model/cliente';
 
 
 @Component({
@@ -12,12 +13,13 @@ import { Signup } from '../../model/signup';
 })
 export class SignupComponent implements OnInit {
 
-  signupModel: Signup;
+  signupModel: Cliente;
   signupForm;
 
   constructor(
-    private signupService: SignupService,
+    private clienteService: ClienteService,
     private formBuilder: FormBuilder,
+    private router: Router,
   ){
     this.signupForm = this.formBuilder.group({
       nome: '',
@@ -33,10 +35,17 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   
-  async onSubmit(body: Signup){
-    
-    await this.signupService.signup(body).subscribe((data: Signup) => this.signupModel = {...data});
-    console.log(this.signupModel);
+  onSubmit(body: Cliente){
+    this.clienteService.create(body).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this));
+  }
+
+  redirectHandler(){
+    alert('Cadastro efetuado com sucesso !')
+    this.router.navigate(['login']);
+  }
+
+  errorHandler(){
+    alert('Usuário ou senha está incorreto ! Tente novamente')
   }
 
 }
