@@ -21,6 +21,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
 import { SignupService } from './providers/signup.service';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SignupService } from './providers/signup.service';
     CervejariaComponent,
     VendaComponent,
     Error404Component,
-    CaroseulComponent
+    CaroseulComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
