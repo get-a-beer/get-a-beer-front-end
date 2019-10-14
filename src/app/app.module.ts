@@ -17,6 +17,7 @@ import { VendaComponent } from './pages/venda/venda.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { SignupCervejariaComponent } from './pages/signup-cervejaria/signup-cervejaria.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
@@ -31,7 +32,8 @@ import { AuthService } from './providers/auth.service';
     CervejariaComponent,
     VendaComponent,
     Error404Component,
-    CaroseulComponent
+    CaroseulComponent,
+    SignupCervejariaComponent
   ],
   imports: [
     BrowserModule,
