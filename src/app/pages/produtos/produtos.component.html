@@ -1,0 +1,17 @@
+<h1>Produtos</h1>
+
+<table>
+    <thead>
+       <td>Nome</td>
+       <td>descrição</td> 
+    </thead>
+    <tbody>
+        <tr *ngFor="let produto of responseProdutos">
+            <td>{{produto.name}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.quantidade}}</td>
+            <td>{{produto.preco}}</td>
+            <td>{{produto.desconto}}</td>
+        </tr>
+    </tbody>
+</table>

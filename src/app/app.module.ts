@@ -20,6 +20,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
+import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { ProdutoService } from './providers/produto.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { AuthService } from './providers/auth.service';
     CervejariaComponent,
     VendaComponent,
     Error404Component,
-    CaroseulComponent
+    CaroseulComponent,
+    ProdutosComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { AuthService } from './providers/auth.service';
   ],
   providers: [
     ViaCepService,
-    AuthService
+    AuthService,
+    ProdutoService
   ],
   bootstrap: [AppComponent]
 })
