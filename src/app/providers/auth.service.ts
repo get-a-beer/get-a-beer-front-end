@@ -11,7 +11,7 @@ export class AuthService{
     constructor(private http: HttpClient){}
     
     login(auth: Login): Observable<JwtToken>{
-      const api = `http://api-get-beer.herokuapp.com/auth/login`;
+      const api = `https://api-get-beer.herokuapp.com/auth/login`;
       return this.http.post<JwtToken>(api, auth).pipe(
         retry(1),
         catchError(this.errorHandl)
