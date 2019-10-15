@@ -10,7 +10,7 @@ export class ClienteService{
     constructor(private http: HttpClient){}
     
     create(body: Cliente): Observable<Cliente>{
-      const api = `http://api-get-beer.herokuapp.com/cliente`;
+      const api = `https://api-get-beer.herokuapp.com/cliente`;
       return this.http.post<Cliente>(api, body).pipe(
         retry(1),
         catchError(this.errorHandl)

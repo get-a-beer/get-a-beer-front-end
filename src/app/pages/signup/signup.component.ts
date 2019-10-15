@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
   }
 
   errorHandler(){
-    alert('Usuário ou senha está incorreto ! Tente novamente')
+    alert('Erro inesperado ! Tente novamente')
   }
 
 }
