@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   redirectHandler(data: JwtToken){
     this.token = data;
-    this.router.navigate(['home']);
+    this.router.navigate(['profile']);
   }
 
   errorHandler(){

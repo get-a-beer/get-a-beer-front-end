@@ -27,6 +27,7 @@ import { ProdutoService } from './providers/produto.service';
 import { CreateProdutoComponent } from './pages/produtos/create-produto/create-produto.component';
 import { ClienteService } from './providers/cliente.service';
 import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HomeComponent } from './pages/home/home.component';
     SignupCervejariaComponent,
     ProdutosComponent,
     HomeComponent,
-    CreateProdutoComponent
+    CreateProdutoComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
