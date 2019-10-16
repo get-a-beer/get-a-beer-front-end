@@ -1,17 +1,22 @@
 <h1>Produtos</h1>
 
-<table>
+<table *ngIf="responseProdutos" class="table table-hover">
     <thead>
-       <td>Nome</td>
-       <td>descrição</td> 
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Preço</th> 
+        </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let produto of responseProdutos">
+        <tr *ngFor="let produto of responseProdutos.data">
+            <th scope="row">{{produto.id}}</th>
             <td>{{produto.name}}</td>
             <td>{{produto.descricao}}</td>
             <td>{{produto.quantidade}}</td>
             <td>{{produto.preco}}</td>
-            <td>{{produto.desconto}}</td>
         </tr>
     </tbody>
 </table>

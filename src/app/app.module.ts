@@ -22,6 +22,7 @@ import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { ProdutoService } from './providers/produto.service';
+import { CreateProdutoComponent } from './pages/produtos/create-produto/create-produto.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProdutoService } from './providers/produto.service';
     VendaComponent,
     Error404Component,
     CaroseulComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    CreateProdutoComponent
   ],
   imports: [
     BrowserModule,

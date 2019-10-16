@@ -6,6 +6,7 @@ import { CervejaComponent } from './pages/cerveja/cerveja.component';
 import { CervejariaComponent } from './pages/cervejaria/cervejaria.component';
 import { VendaComponent } from './pages/venda/venda.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { CreateProdutoComponent } from './pages/produtos/create-produto/create-produto.component';
 //import { Error404Component } from './error404/error404.component';
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {path: 'produtos', component: ProdutosComponent},
+  {path: 'produtos/create', component: CreateProdutoComponent},
   //{ path: '**', component: Error404Component}
 ];
 
