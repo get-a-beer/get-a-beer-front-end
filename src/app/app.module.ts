@@ -20,6 +20,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
+import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { ProdutoService } from './providers/produto.service';
+import { CreateProdutoComponent } from './pages/produtos/create-produto/create-produto.component';
 import { ClienteService } from './providers/cliente.service';
 import { HomeComponent } from './pages/home/home.component';
 
@@ -33,8 +36,7 @@ import { HomeComponent } from './pages/home/home.component';
     CervejariaComponent,
     VendaComponent,
     Error404Component,
-    CaroseulComponent,
-    HomeComponent
+    CaroseulComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +49,7 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   providers: [
     ViaCepService,
-    AuthService,
-    ClienteService
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
