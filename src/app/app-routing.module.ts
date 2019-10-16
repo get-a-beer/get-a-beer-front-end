@@ -16,7 +16,7 @@ const routes: Routes = [
   // { path: '**', component: Error404Component},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'venda-conosco', component: SignupCervejariaComponent}
+  { path: 'venda-conosco', component: SignupCervejariaComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CervejariaService } from '../../providers/cervejaria.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup-cervejaria',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupCervejariaComponent implements OnInit {
 
-  protected nomeFantasia: string;
+  // Variáveis do [(ngModel)] no html
+  protected businessName: string;
   protected cnpj: string;
   protected email: string;
   protected phone: string;
@@ -15,13 +18,40 @@ export class SignupCervejariaComponent implements OnInit {
   protected password: string;
   protected confPassword: string;
 
-  constructor() { }
+  // Outras variáveis
+  // -
+
+  constructor(private cervejariaService: CervejariaService) { }
 
   ngOnInit() {
   }
 
   signupBrewery() {
-    
-  }
 
+    const data = {
+      nome: this.businessName,
+      cnpj: this.cnpj,
+      email: this.email,
+      telefone: this.phone,
+      usuario: this.username,
+      senha: this.password
+    };
+
+    this.cervejariaService.signup(data).subscribe(
+      () => {
+        Swal.fire({
+          title: 'Yay!',
+          text: 'Usuário criado com sucesso',
+          type: 'success'
+        });
+      },
+      () => {
+        Swal.fire({
+          title: 'Oops!',
+          text: 'Parece que houve um problema ao fazer o seu cadastro',
+          type: 'error'
+        });
+      }
+    );
+  }
 }
