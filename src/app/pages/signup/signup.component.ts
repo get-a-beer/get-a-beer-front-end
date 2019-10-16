@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 import { ClienteService } from '../../providers/cliente.service';
 import { Cliente } from '../../model/cliente';
@@ -40,12 +41,20 @@ export class SignupComponent implements OnInit {
   }
 
   redirectHandler(){
-    alert('Cadastro efetuado com sucesso !')
+    Swal.fire({
+      title: 'Yay!',
+      text: 'Cadastro concluído com sucesso !',
+      type: 'success'
+    })
     this.router.navigate(['login']);
   }
 
   errorHandler(){
-    alert('Erro inesperado ! Tente novamente')
+    Swal.fire({
+      title: 'Oops!',
+      text: 'Parece que houve um problema ao fazer o seu cadastro',
+      type: 'error'
+    })
   }
 
 }
