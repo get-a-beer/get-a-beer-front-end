@@ -39,7 +39,10 @@ import { HomeComponent } from './pages/home/home.component';
     VendaComponent,
     Error404Component,
     CaroseulComponent,
-    SignupCervejariaComponent
+    SignupCervejariaComponent,
+    ProdutosComponent,
+    HomeComponent,
+    CreateProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,9 @@ import { HomeComponent } from './pages/home/home.component';
   providers: [
     ViaCepService,
     AuthService,
-    CervejariaService
+    CervejariaService,
+    ProdutoService,
+    ClienteService,
   ],
   bootstrap: [AppComponent]
 })
