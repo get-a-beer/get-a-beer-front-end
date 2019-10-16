@@ -21,6 +21,7 @@ import { SignupCervejariaComponent } from './pages/signup-cervejaria/signup-cerv
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
+import { CervejariaService } from './providers/cervejaria.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AuthService } from './providers/auth.service';
   ],
   providers: [
     ViaCepService,
-    AuthService
+    AuthService,
+    CervejariaService
   ],
   bootstrap: [AppComponent]
 })
