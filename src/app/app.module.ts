@@ -17,9 +17,11 @@ import { VendaComponent } from './pages/venda/venda.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { SignupCervejariaComponent } from './pages/signup-cervejaria/signup-cervejaria.component';
 
 import { ViaCepService } from './providers/viacep.service';
 import { AuthService } from './providers/auth.service';
+import { CervejariaService } from './providers/cervejaria.service';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { ProdutoService } from './providers/produto.service';
 import { CreateProdutoComponent } from './pages/produtos/create-produto/create-produto.component';
@@ -36,7 +38,8 @@ import { HomeComponent } from './pages/home/home.component';
     CervejariaComponent,
     VendaComponent,
     Error404Component,
-    CaroseulComponent
+    CaroseulComponent,
+    SignupCervejariaComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   providers: [
     ViaCepService,
-    AuthService
+    AuthService,
+    CervejariaService
   ],
   bootstrap: [AppComponent]
 })
