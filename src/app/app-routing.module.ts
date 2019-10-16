@@ -13,13 +13,16 @@ import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
-  {path: 'cervejas', component: CervejaComponent},
-  {path: 'cervejarias', component: CervejariaComponent},
+  { path: 'cervejas', component: CervejaComponent },
+  { path: 'cervejarias', component: CervejariaComponent },
   { path: 'prevenda', component: VendaComponent},
   // { path: '**', component: Error404Component},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'venda-conosco', component: SignupCervejariaComponent }
+  { path: 'venda-conosco', component: SignupCervejariaComponent },
+  { path: 'produtos', component: ProdutosComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'produtos/create', component: CreateProdutoComponent },
 ];
 
 @NgModule({
