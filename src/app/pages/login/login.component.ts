@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 import { AuthService } from '../../providers/auth.service';
 import { Login } from '../../model/login';
@@ -40,7 +41,11 @@ export class LoginComponent implements OnInit {
   }
 
   errorHandler(){
-    alert('Usuário ou senha está incorreto ! Tente novamente')
+    Swal.fire({
+      title: 'Oops!',
+      text: 'Parece que houve um problema ao fazer login, tente novamente !',
+      type: 'error'
+    })
   }
 
 }
