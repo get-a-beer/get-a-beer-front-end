@@ -35,10 +35,11 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit(body: Cliente){
-    this.clienteService.create(body).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this));
+    this.clienteService.update(body, 2).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this));
   }
 
   loadProfile(body: Cliente){
+    console.log(body)
     this.profileForm.controls['nome'].setValue(body.nome)
     this.profileForm.controls['email'].setValue(body.email)
     this.profileForm.controls['cpf'].setValue(body.cpf)

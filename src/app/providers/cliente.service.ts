@@ -17,6 +17,13 @@ export class ClienteService{
         catchError(this.errorHandl)
       );
     }
+    
+    update(body: Cliente, id: number): Observable<Cliente>{
+      return this.http.put<Cliente>(this.api + `${id}`, body).pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      );
+    }
 
     findAll(): Observable<Cliente>{
       return this.http.get<Cliente>(this.api).pipe(
@@ -31,7 +38,7 @@ export class ClienteService{
         catchError(this.errorHandl),
         map( (response) => {
           const cliente: Cliente = {
-            usuario: response.usuario,
+            usuario: response.pessoa.usuario.usuario,
             email: response.pessoa.email,
             nome: response.pessoa.nome,
             senha: '',
