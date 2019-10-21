@@ -9,6 +9,7 @@ import { SignupCervejariaComponent } from './pages/signup-cervejaria/signup-cerv
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { CreateProdutoComponent } from './pages/produtos/create-produto/create-produto.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 //import { Error404Component } from './error404/error404.component';
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'produtos', component: ProdutosComponent },
   { path: 'home', component: HomeComponent },
   { path: 'produtos/create', component: CreateProdutoComponent },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({
