@@ -10,13 +10,13 @@ import Swal from 'sweetalert2';
 export class SignupCervejariaComponent implements OnInit {
 
   // Variáveis do [(ngModel)] no html
-  protected businessName: string;
-  protected cnpj: string;
-  protected email: string;
-  protected phone: string;
-  protected username: string;
-  protected password: string;
-  protected confPassword: string;
+  businessName: string;
+  cnpj: string;
+  email: string;
+  phone: string;
+  username: string;
+  password: string;
+  confPassword: string;
 
   // Outras variáveis
   // -
