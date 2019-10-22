@@ -3,15 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Login } from '../model/login';
+import { JwtToken } from '../model/jwtToken';
 
 @Injectable()
 export class AuthService{
     
     constructor(private http: HttpClient){}
     
-    login(auth: Login): Observable<Login>{
-      const api = `https://ptsv2.com/t/rlyxg-1570570670/post`;
-      return this.http.post<Login>(api, auth).pipe(
+    login(auth: Login): Observable<JwtToken>{
+      const api = `https://api-get-beer.herokuapp.com/auth/login`;
+      return this.http.post<JwtToken>(api, auth).pipe(
         retry(1),
         catchError(this.errorHandl)
       );
@@ -26,7 +27,7 @@ export class AuthService{
           // Get server-side error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        console.log(errorMessage);
+        //console.log(errorMessage);
         return throwError(errorMessage);
      }
 }
