@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
@@ -9,15 +9,10 @@ import { Cliente } from '../model/cliente';
 @Injectable()
 export class AuthService{
 
-    token: JwtToken;
-
     constructor(
       private http: HttpClient
     )
-    {
-      if(localStorage.getItem('currentUser'))
-        this.token.access_token = localStorage.getItem('currentUser')
-    }
+    {}
     
     login(auth: Login): Observable<JwtToken>{
       const api = `https://api-get-beer.herokuapp.com/auth/login`;
@@ -32,21 +27,21 @@ export class AuthService{
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
-          'Authorization': localStorage.getItem('currentUser')
+          'Authorization': `Bearer ${localStorage.getItem('currentUser')}`
         })
       }
       return this.http.get<Cliente | any>(api, httpOptions).pipe(
         retry(1),
         catchError(this.errorHandl),
         map( (response) => {
-          const cliente: Cliente = {
-            usuario: response.pessoa.usuario.usuario,
-            email: response.pessoa.email,
-            nome: response.pessoa.nome,
-            senha: '',
-            dataNascimento: response.dataNascimento,
-            cpf: response.cpf,
-            telefone: response.pessoa.telefone
+          const cliente: any = { //Trocar o tipo de retorno para Cliente
+            usuario: response.username,
+            //email: response.pessoa.email,
+            //nome: response.pessoa.nome,
+            //senha: '',
+            //dataNascimento: response.dataNascimento,
+            //cpf: response.cpf,
+            //telefone: response.pessoa.telefone
           }
           console.log(cliente)
           return cliente;
@@ -59,7 +54,8 @@ export class AuthService{
         if(error.error instanceof ErrorEvent) {
           // Get client-side error
           errorMessage = error.error.message;
-        } else {
+        }
+        else {
           // Get server-side error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
