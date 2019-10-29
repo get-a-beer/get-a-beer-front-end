@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'venda-conosco', component: SignupCervejariaComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent},
   { path: 'produtos/create', component: CreateProdutoComponent },
   { path: 'profile', component: ProfileComponent }
 ];

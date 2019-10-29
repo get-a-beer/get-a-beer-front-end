@@ -14,7 +14,6 @@ import { JwtToken } from 'src/app/model/jwtToken';
 })
 export class LoginComponent implements OnInit {
   
-  token: JwtToken;
   loginForm;
 
   ngOnInit() {  
@@ -36,8 +35,8 @@ export class LoginComponent implements OnInit {
   }
 
   redirectHandler(data: JwtToken){
-    this.token = data;
-    this.router.navigate(['profile']);
+    localStorage.setItem('currentUser', data.access_token)
+    this.router.navigate(['home']);
   }
 
   errorHandler(){
