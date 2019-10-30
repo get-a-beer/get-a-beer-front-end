@@ -28,6 +28,7 @@ import { CreateProdutoComponent } from './pages/produtos/create-produto/create-p
 import { ClienteService } from './providers/cliente.service';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PagamentoComponent } from './pages/pagamento/pagamento.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ProdutosComponent,
     HomeComponent,
     CreateProdutoComponent,
-    ProfileComponent
+    ProfileComponent,
+    PagamentoComponent
   ],
   imports: [
     BrowserModule,
