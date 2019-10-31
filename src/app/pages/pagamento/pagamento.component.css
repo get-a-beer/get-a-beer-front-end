@@ -3,26 +3,55 @@
   width: 600px;
   margin-top: auto;
   margin-bottom: auto;
-  background: #d6d6d6;
+  background: #ffffff;
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 5px;
+  border-radius: 10px;
+  border:solid 1.5px;
+  border-color: #e25417;
 }
 
 .login_btn {
-  width: 100%;
-  background: #ee9c0f !important;
+  background: #00a116 !important;
   color: white !important;
+  font-weight: bold;
 }
+
 .login_btn:focus {
   box-shadow: none !important;
   outline: 0px !important;
+}
+
+.total_value{
+  font-size: 30px;
+}
+
+.payment_border_title{
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  border-color: #AAA;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.payment_border_body{
+  border-right: solid 1px; 
+  border-color: #AAA;
+}
+
+.payment-logo{
+  height: 80px;
+  padding: 10px;
+  width: 160px;
+  margin: 0 auto;
+}
+
+.payment-logo:hover{
+  border-radius: 10px;
+  background-color: rgb(170, 170, 170, 0.3)
 }
 
 body {
