@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, SelectControlValueAccessor } from '@angular/f
 import { Cliente } from 'src/app/model/cliente';
 import { ClienteService } from 'src/app/providers/cliente.service';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/providers/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +17,9 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
     private clienteService: ClienteService,
+    private authService: AuthService
   ) 
   {
     this.profileForm = this.formBuilder.group({
@@ -27,11 +31,13 @@ export class ProfileComponent implements OnInit {
       usuario: '',
       senha: ''
     });
-    //this.profileForm.controls['nome'].setValue(this.cliente.nome)
   }
 
   ngOnInit() {
-    this.clienteService.findOne(2).subscribe(this.loadProfile.bind(this), this.errorHandler.bind(this));
+    if(localStorage.getItem('currentUser'))
+      this.authService.me().subscribe(this.loadProfile.bind(this), this.errorHandler.bind(this));
+    else
+      this.router.navigate(['login']);
   }
 
   onSubmit(body: Cliente){
@@ -39,13 +45,14 @@ export class ProfileComponent implements OnInit {
   }
 
   loadProfile(body: Cliente){
-    console.log(body)
+    this.profileForm.controls['usuario'].setValue(body.usuario)
+    /*
     this.profileForm.controls['nome'].setValue(body.nome)
     this.profileForm.controls['email'].setValue(body.email)
     this.profileForm.controls['cpf'].setValue(body.cpf)
     this.profileForm.controls['dataNascimento'].setValue(body.dataNascimento)
     this.profileForm.controls['telefone'].setValue(body.telefone)
-    this.profileForm.controls['usuario'].setValue(body.usuario)
+    */
   }
 
   redirectHandler(){
@@ -57,6 +64,7 @@ export class ProfileComponent implements OnInit {
   }
 
   errorHandler(){
+    this.router.navigate(['login']);
     Swal.fire({
       title: 'Oops!',
       text: 'Parece que houve um problema inesperado',
