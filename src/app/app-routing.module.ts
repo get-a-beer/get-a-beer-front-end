@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: 'produtos', component: ProdutosComponent },
   { path: 'home', component: HomeComponent },
   { path: 'produtos/create', component: CreateProdutoComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  {path: '', component: HomeComponent}
 ];
 
 @NgModule({
