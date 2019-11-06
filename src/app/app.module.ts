@@ -8,9 +8,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HeaderComponent } from './components/header/header.component';
-import { CaroseulComponent } from './components/caroseul/caroseul.component';
-
 import { CervejaComponent } from './pages/cerveja/cerveja.component';
 import { CervejariaComponent } from './pages/cervejaria/cervejaria.component';
 import { VendaComponent } from './pages/venda/venda.component';
@@ -29,24 +26,34 @@ import { ClienteService } from './providers/cliente.service';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PagamentoComponent } from './pages/pagamento/pagamento.component';
+import { HeaderComponent } from './componets/header/header.component';
+import { NavigationComponent } from './componets/navigation/navigation.component';
+import { CarouselSectionComponent } from './componets/carousel-section/carousel-section.component';
+import { SectionComponent } from './componets/section/section.component';
+import { NewsletterComponent } from './componets/newsletter/newsletter.component';
+import { FooterComponent } from './componets/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent,
     CervejaComponent,
     CervejariaComponent,
     VendaComponent,
     Error404Component,
-    CaroseulComponent,
     SignupCervejariaComponent,
     ProdutosComponent,
     HomeComponent,
     CreateProdutoComponent,
     ProfileComponent,
-    PagamentoComponent
+    PagamentoComponent,
+    HeaderComponent,
+    NavigationComponent,
+    CarouselSectionComponent,
+    SectionComponent,
+    NewsletterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
