@@ -29,7 +29,6 @@ import { PagamentoComponent } from './pages/pagamento/pagamento.component';
 import { HeaderComponent } from './componets/header/header.component';
 import { NavigationComponent } from './componets/navigation/navigation.component';
 import { CarouselSectionComponent } from './componets/carousel-section/carousel-section.component';
-import { SectionComponent } from './componets/section/section.component';
 import { NewsletterComponent } from './componets/newsletter/newsletter.component';
 import { FooterComponent } from './componets/footer/footer.component';
 
@@ -51,7 +50,6 @@ import { FooterComponent } from './componets/footer/footer.component';
     HeaderComponent,
     NavigationComponent,
     CarouselSectionComponent,
-    SectionComponent,
     NewsletterComponent,
     FooterComponent,
   ],
