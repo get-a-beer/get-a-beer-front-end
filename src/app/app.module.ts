@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CervejaComponent } from './pages/cerveja/cerveja.component';
 import { CervejariaComponent } from './pages/cervejaria/cervejaria.component';
@@ -29,9 +30,9 @@ import { PagamentoComponent } from './pages/pagamento/pagamento.component';
 import { HeaderComponent } from './componets/header/header.component';
 import { NavigationComponent } from './componets/navigation/navigation.component';
 import { CarouselSectionComponent } from './componets/carousel-section/carousel-section.component';
-import { SectionComponent } from './componets/section/section.component';
 import { NewsletterComponent } from './componets/newsletter/newsletter.component';
 import { FooterComponent } from './componets/footer/footer.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -51,9 +52,9 @@ import { FooterComponent } from './componets/footer/footer.component';
     HeaderComponent,
     NavigationComponent,
     CarouselSectionComponent,
-    SectionComponent,
     NewsletterComponent,
     FooterComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,8 @@ import { FooterComponent } from './componets/footer/footer.component';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     ViaCepService,

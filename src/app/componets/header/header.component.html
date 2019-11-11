@@ -9,13 +9,7 @@
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
-            <div id="top-header">
-                <div class="container">
-                    <ul class="header-links pull-right">
-                        <li><a href="/profile"><i class="fa fa-user-o"></i> Meu Perfil</a></li>
-                    </ul>
-                </div>
-            </div>
+
             <!-- /TOP HEADER -->
 
             <!-- MAIN HEADER -->
@@ -25,7 +19,7 @@
                     <!-- row -->
                     <div class="row">
                         <!-- LOGO -->
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="header-logo">
                                 <a href="#" class="logo">
                                     <img src="../assets/logo.png" alt="">
@@ -35,7 +29,7 @@
                         <!-- /LOGO -->
 
                         <!-- SEARCH-->
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="header-search">
                                 <form>
                                     <select class="input-select">
@@ -53,8 +47,16 @@
                         <!-- ACCOUNT -->
                         <div class="col-md-3">
                             <div class="header-ctn">
+                                <div class="top-header">
+                                    <div class="container">
+                                        <ul class="header-links pull-right">
+                                            <li><a href=""><i class="fa fa-user-o"></i> Minha Conta</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
                                 <!-- Wishlist -->
-                                <div>
+                                <div class="bottom-header">
                                     <a href="#">
                                         <i class="fa fa-heart-o"></i>
                                         <span>Desejos</span>
@@ -65,42 +67,33 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-target="navbarNavDropdown" data-toggle="dropdown" aria-expanded="true">
+                                    <a data-target="navbarNavDropdown" data-toggle="dropdown" aria-expanded="true">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Carrinho</span>
-                                        <div class="qty">3</div>
+                                        <div class="qty">{{produtos.length}}</div>
                                     </a>
-                                    <div class="cart-dropdown" aria-labelledby="navbarDropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
+                                    <div class="cart-dropdown" aria-labelledby="navbarDropdown" id="navbarNavDropdown">
+                                        <div class="cart-list"> 
+                                            <div class="product-widget" *ngFor="let produto of produtos">
                                                 <div class="product-img">
                                                     <img src="../assets/product01.png" alt="">
                                                 </div>
                                                 <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+                                                    <h3 class="product-name"><a href="/cerveja/{{produto.id}}">{{produto.produto.nome}}</a></h3>
+                                                    <h4 class="product-price"><span class="qty">1x</span>${{produto.produto.valor}},00</h4>
                                                 </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="../assets/product02.png" alt="">
+                                                <div>
+                                                    <button class="delete" (click)="removeItem()"><i class="fa fa-close"></i></button>                                            
                                                 </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                         <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: $2940.00</h5>
+                                            <small>{{produtos.length}} Item(s) selected</small>
+                                            <h5>SUBTOTAL: ${{total()}}</h5>
                                         </div>
                                         <div class="cart-btns">
-                                            <a href="#">Ver carrinho</a>
-                                            <a href="#">Sair  <i class="fa fa-arrow-circle-right"></i></a>
+                                            <a href="/checkout">Ver carrinho</a>
+                                            <a href="/pagamento">Fechar pedido</a>
                                         </div>
                                     </div>
                                 </div>

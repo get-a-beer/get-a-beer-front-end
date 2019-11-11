@@ -6,35 +6,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div  class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-			  <li data-target="" data-slide-to="0" class="active"></li>
-			  <li data-target="" data-slide-to="1"></li>
-			  <li data-target="" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-			  <div class="carousel-item active">
-				<img class="d-block w-100" src="../assets/hotdeal.png" alt="x">
+		<ngb-carousel *ngIf="images">
+			<ng-template ngbSlide *ngFor="let img of images">
+			  <div class="picsum-img-wrapper">
+				<img class="slide" [src]="img" alt="Banner">
 			  </div>
-			  <div class="carousel-item">
-				<img class="d-block w-100" src="../assets/hotdeal.png" alt="">
-			  </div>
-			  <div class="carousel-item active">
-				<img class="d-block w-100" src="../assets/hotdeal.png" alt="">
-				<div class="carousel-caption d-none d-md-block">
-					<h2>50% de desconto Somente nessa semana.</h2>
-					<a class="primary-btn cta-btn" href="#">Shop now</a>
+			  <div class="carousel-caption">
+				<div class="hot-deal">
+					<h2 class="text-uppercase">Ofertas inéééditas como você nunca viu!</h2>
+					<p>50% de desconto Somente nessa semana.</p>
+					<button class="primary-btn cta-btn">Aproveite</button>
 				</div>
 			  </div>
-			</div>
-			<a class="carousel-control-prev" role="button" data-slide="prev">
-			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			  <span class="sr-only">Anterior</span>
-			</a>
-			<a class="carousel-control-next" role="button" data-slide="next">
-			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			  <span class="sr-only">Próximo</span>
-			</a>
-		</div>
-    </body>
+			</ng-template>
+		</ngb-carousel>
+	</body>
 </html>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseCreateProduto, RequestCreateProduto } from 'src/app/model/produto.model';
+import { Produto} from 'src/app/model/produto.model';
 import { ProdutoService } from 'src/app/providers/produto.service';
 
 @Component({
@@ -9,13 +9,18 @@ import { ProdutoService } from 'src/app/providers/produto.service';
 })
 export class CreateProdutoComponent implements OnInit {
 
-  produto: RequestCreateProduto = {
-    name: "",
-    descricao: "",
-    quantidade: 0,
-    preco: 0,
-    cervejaria:0
-  };
+  produto: Produto = {
+    id: 0,
+    nome: "",
+    descricao:"",
+    valor: 0,
+    qtdDisponivel: 0,
+    temperatura: 0,
+    cor: "",
+    teorAlcolico: 0,
+    harmonizacao: "",
+    idCervejaria: 0
+  }
 
   constructor(private ProdutoService: ProdutoService) { }
 

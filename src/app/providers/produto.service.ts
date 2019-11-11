@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
-import {ResponseProdutos, RequestCreateProduto, ResponseCreateProduto} from '../model/produto.model';
+import {Produto} from '../model/produto.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,16 +8,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProdutoService {
 
-  private url ="";
-  
+  private url ="https://api-get-beer.herokuapp.com/cerveja";
+
+
   constructor(private http: HttpClient) { }
 
-  getProdutos(): Observable<ResponseProdutos>{
-    console.log(this.http.get<ResponseProdutos>(this.url));
-    return this.http.get<ResponseProdutos>(this.url); 
+  findAll(): Observable<Produto>{
+    return this.http.get<Produto>(this.url).pipe(); 
   }
 
-  createProduto(request:RequestCreateProduto): Observable<ResponseCreateProduto>{
-    return this.http.post<ResponseCreateProduto>(this.url,request)
+  createProduto(request:Produto): Observable<Produto>{
+    return this.http.post<Produto>(this.url + '/',request).pipe();
   }
+
+  findOne(id: number): Observable<Produto>{
+    return this.http.get<Produto>(this.url + `${id}`).pipe();
+  }
+
+
 }

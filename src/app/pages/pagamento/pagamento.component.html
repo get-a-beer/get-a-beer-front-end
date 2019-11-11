@@ -4,16 +4,30 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<title>Get a Beer</title>
-
-		<!-- Google font -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     </head>
 	<body>
 
         <app-header></app-header>
-		<app-navigation></app-navigation>
+        <app-navigation></app-navigation>
+        
+        		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumb-tree">
+							<li><a href="/">Home</a></li>
+							<li class="active">Pagamento</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
 
         <div class="section">
             <div class="container h-100">
@@ -37,7 +51,7 @@
                                     <b>Total</b>
                                 </div>
                                 <div class="row flex-grow-1 align-content-center justify-content-around flex-column total_value ">
-                                    <b>R$ 150.00</b>
+                                    <b>R$ </b>
                                     <div class="d-flex justify-content-center" id="paypal-checkout-btn">
                                         <!-- Aqui o botao do paypal sera renderizado -->
                                     </div>
