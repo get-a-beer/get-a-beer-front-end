@@ -318,6 +318,7 @@
     border-radius: 40px;
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
+    font-size: 12px;
   }
   
   .product .add-to-cart .add-to-cart-btn>i {

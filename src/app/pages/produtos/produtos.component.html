@@ -11,12 +11,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let produto of responseProdutos.data">
+            <tr *ngFor="let produto of responseProdutos">
                 <th scope="row">{{produto.id}}</th>
-                <td>{{produto.name}}</td>
-                <td>{{produto.descricao}}</td>
-                <td>{{produto.quantidade}}</td>
-                <td>{{produto.preco}}</td>
+                <td>{{produto.produto.nome}}</td>
+                <td>{{produto.categoria}}</td>
+                <td>{{produto.produto.qtdDisponivel}}</td>
+                <td>{{produto.produto.valor}},00</td>
             </tr>
         </tbody>
     </table>        
