@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/providers/cart.service';
-import { Produto } from 'src/app/model/produto.model';
+import { CartService } from '../../providers/cart.service';
+import { Produto } from '../../model/produto.model';
 
 @Component({
   selector: 'app-checkout',
@@ -27,10 +27,10 @@ export class CheckoutComponent implements OnInit {
     return this.cartService.items;
   }
 
-  total() :number{
+  total(): number{
     var totalCompra = 0;
     for(var produto of this.cartService.items){
-      totalCompra += parseFloat(produto.produto.valor);
+      totalCompra += produto.produto.valor;
     }
     return totalCompra;
   }

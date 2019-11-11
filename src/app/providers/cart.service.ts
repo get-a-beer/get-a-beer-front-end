@@ -23,19 +23,19 @@ export class CartService {
 
   total() :number{
     return this.items
-    .map(item => item.valor)
+    .map(item => item.produto.valor)
     .reduce((prev, value)=> prev+value, 0)
 }
   totalIns():number{
      return this.items
-    .map(item => item.valor)
+    .map(item => item.produto.valor)
     .reduce((prev, value)=> prev+value, 0)   
 }
   installment():number{
     return Math.max.apply(
         Math,this.items
         .map(function(prod){
-        return prod.valor;
+        return prod.produto.valor;
     }))
   }
 }

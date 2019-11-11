@@ -148,8 +148,6 @@
     box-shadow: 0px 0px 0px 2px #E4E7ED;
     z-index: 99;
     right: 0;
-    opacity: 0;
-    visibility: hidden;
   }
 
   .cart-dropdown:before {
@@ -377,8 +375,6 @@
 .products-tabs>.tab-pane {
   display: block;
   height: 0;
-  opacity: 0;
-  visibility: hidden;
   overflow-y: hidden;
   padding-bottom: 60px;
   margin-bottom: -60px;

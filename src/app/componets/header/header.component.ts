@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import $ from "jquery";
+import * as $ from "jquery";
 import {CartService} from 'src/app/providers/cart.service';
 import { Produto } from 'src/app/model/produto.model';
 import { range } from 'rxjs';
@@ -14,20 +14,22 @@ export class HeaderComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   produtos: Produto[] = [];
+  show: boolean = false;
   
   ngOnInit() {
     //Expandir e recolher carrinho:
+    /*
     $(document).mouseup(function(e){   
-      var obj = $(".dropdown");
-    if (!obj.is(e.target) && obj.has(e.target).length === 1){
-      console.log(e);
-      $('.dropdown').addClass('open'); 
-    }
-    else{
-      $('.dropdown').removeClass('open');
-    }
-  });
-
+        var obj = $(".dropdown");
+      if (!obj.is(e.target) && obj.has(e.target).length === 1){
+        console.log(e);
+        $('.dropdown').addClass('open'); 
+      }
+      else{
+        $('.dropdown').removeClass('open');
+      }
+    });
+    */
     //sessionStorage.removeItem("cart")
     let cartSession = sessionStorage.getItem("cart");
     if(cartSession != null){
@@ -35,6 +37,10 @@ export class HeaderComponent implements OnInit {
     }
 
     this.produtos = this.items();  
+  }
+
+  open(){
+    this.show = !this.show;
   }
 
   items(): Produto[] {
@@ -49,7 +55,7 @@ export class HeaderComponent implements OnInit {
   total() :number{
     var totalCompra = 0;
     for(var produto of this.cartService.items){
-      totalCompra += parseFloat(produto.produto.valor);
+      totalCompra += produto.produto.valor;
     }
     return totalCompra;
   }

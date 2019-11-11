@@ -17,7 +17,7 @@ export class PagamentoComponent implements AfterViewChecked {
   addScript: boolean = false;
   paypalLoad: boolean = true;
 
-  totalValue: number = 1 // Esse valor total deve ser retornado pela api;
+  totalValue: number = 30 // Esse valor total deve ser retornado pela api;
 
   paypalConfig = {
     env: 'sandbox',

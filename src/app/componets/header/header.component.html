@@ -50,7 +50,7 @@
                                 <div class="top-header">
                                     <div class="container">
                                         <ul class="header-links pull-right">
-                                            <li><a href=""><i class="fa fa-user-o"></i> Minha Conta</a></li>
+                                            <li><a href="/profile"><i class="fa fa-user-o"></i> Minha Conta</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -67,12 +67,12 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a data-target="navbarNavDropdown" data-toggle="dropdown" aria-expanded="true">
+                                    <a (click)="open()" data-target="navbarNavDropdown" data-toggle="dropdown" aria-expanded="true">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Carrinho</span>
                                         <div class="qty">{{produtos.length}}</div>
                                     </a>
-                                    <div class="cart-dropdown" aria-labelledby="navbarDropdown" id="navbarNavDropdown">
+                                    <div class="cart-dropdown open" *ngIf="show" aria-labelledby="navbarDropdown" id="navbarNavDropdown">
                                         <div class="cart-list"> 
                                             <div class="product-widget" *ngFor="let produto of produtos">
                                                 <div class="product-img">
