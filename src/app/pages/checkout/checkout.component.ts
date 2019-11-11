@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/providers/cart.service';
+import { Produto } from 'src/app/model/produto.model';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
+
+  produtos: Produto[] = [];
 
   ngOnInit() {
+    //sessionStorage.removeItem("cart")
+    let cartSession = sessionStorage.getItem("cart");
+    if(cartSession != null){
+     this.cartService.items = JSON.parse(cartSession);
+    }
+
+    this.produtos = this.items();  
+  }
+
+  items(): Produto[] {
+    return this.cartService.items;
+  }
+
+  total() :number{
+    var totalCompra = 0;
+    for(var produto of this.cartService.items){
+      totalCompra += parseFloat(produto.produto.valor);
+    }
+    return totalCompra;
   }
 
 }

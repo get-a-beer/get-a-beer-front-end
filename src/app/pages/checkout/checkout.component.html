@@ -94,22 +94,18 @@
 								<div><strong>TOTAL</strong></div>
 							</div>
 							<div class="order-products">
-								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
-								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
+								<div class="order-col" *ngFor="let produto of produtos">
+									<div>1x {{produto.produto.nome}}</div>
+									<div>R${{produto.produto.valor}}.00</div>
 								</div>
 							</div>
 							<div class="order-col">
-								<div>Shiping</div>
-								<div><strong>FREE</strong></div>
+								<div>Frente</div>
+								<div><strong>Grátis</strong></div>
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">$2940.00</strong></div>
+								<div><strong class="order-total">R${{total()}}.00</strong></div>
 							</div>
 						</div>
 						<a href="/pagamento" class="primary-btn order-submit">Finalizar Compra</a>
