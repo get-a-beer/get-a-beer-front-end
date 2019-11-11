@@ -21,5 +21,9 @@ export class ProdutoService {
     return this.http.post<Produto>(this.url + '/',request).pipe();
   }
 
+  findOne(id: number): Observable<Produto>{
+    return this.http.get<Produto>(this.url + `${id}`).pipe();
+  }
+
 
 }

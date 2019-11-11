@@ -160,14 +160,14 @@
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">{{produto.categoria}}</p>
-                                        <h3 class="product-name"><a href="#"></a>{{produto.produto.nome}}</h3>
+                                        <h3 class="product-name">{{produto.produto.nome}}</h3>
                                         <h4 class="product-price">${{produto.produto.valor}}.00 <del class="product-old-price">${{produto.produto.valor}}.0</del></h4>
                                         <div class="product-rating">
                                             <i class="fa fa-star"></i>
                                         </div>
                                         <div class="product-btns">
                                             <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Desejos</span></button>
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Visualizar</span></button>
+                                            <button class="quick-view"><a href="/cerveja/{{produto.id}}"><i class="fa fa-eye"></i></a><span class="tooltipp">Visualizar</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
