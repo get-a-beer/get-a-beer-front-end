@@ -10,9 +10,7 @@ declare let paypal: any;
 })
 export class PagamentoComponent implements AfterViewChecked {
 
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router) { }
 
   addScript: boolean = false;
   paypalLoad: boolean = true;
