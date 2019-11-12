@@ -199,3 +199,7 @@ body {
   #breadcrumb .breadcrumb-tree li a:hover {
     color: #b9420f;
   }
+
+  .tab-hide{
+    display: none !important;
+  }

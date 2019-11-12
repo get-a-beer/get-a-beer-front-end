@@ -41,12 +41,13 @@
                                 <div class="row justify-content-center payment_border_title">
                                     <b>Escolha a forma de pagamento</b>
                                 </div>
-                                <div class="row flex-grow-1 align-content-center justify-content-around flex-column payment_border_body">
-                                    <img class="payment-logo" src="../assets/paypal.svg">
-                                    <img class="payment-logo" src="../assets/paypal.svg">
+                                <div class="row flex-grow-1 align-content-center justify-content-around flex-column" [ngClass]="{'payment_border_body': tabHidded !== 'none'}">
+                                    <img (click)="changeTab('paypalTab')" class="payment-logo" src="../assets/paypal.svg">
+                                    <img (click)="changeTab('boletoTab')" class="payment-logo" src="../assets/boleto.png">
                                 </div>
                             </div>
-                            <div class="col d-flex flex-column">
+                            
+                            <div class="col d-flex flex-column" [ngClass]="{'tab-hide': !(tabHidded === 'paypalTab')}">
                                 <div class="row justify-content-center payment_border_title">
                                     <b>Total</b>
                                 </div>
@@ -57,6 +58,19 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col d-flex flex-column" [ngClass]="{'tab-hide': !(tabHidded === 'boletoTab')}">
+                                <div class="row justify-content-center payment_border_title">
+                                    <b>Total</b>
+                                </div>
+                                <div class="row flex-grow-1 align-content-center justify-content-around flex-column total_value ">
+                                    <b>R$ {{totalValue}}</b>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" name="button" class="btn login_btn">Gerar boleto</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
