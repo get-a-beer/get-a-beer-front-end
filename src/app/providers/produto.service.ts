@@ -22,7 +22,7 @@ export class ProdutoService {
   }
 
   findOne(id: number): Observable<Produto>{
-    return this.http.get<Produto>(this.url + `${id}`).pipe();
+    return this.http.get<Produto>(this.url + `/${id}`).pipe();
   }
 
 

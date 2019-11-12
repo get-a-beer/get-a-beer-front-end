@@ -10,21 +10,23 @@ import { query } from '@angular/animations';
   styleUrls: ['./cerveja.component.css']
 })
 export class CervejaComponent implements OnInit {
-  produtos: Produto;
+  produto: Produto;
   id: number;
   constructor(private produtoService: ProdutoService ,private route: ActivatedRoute) { }
   
   images = ["product03_p9gojs", "product02_usctfi", "product01_xe6vs5"].map((n) => `https://res.cloudinary.com/getabeer/image/upload/${n}`);
   ngOnInit() {
-    this.route.queryParams.subscribe(
-      (queryParams: any) =>{
-        this.id = queryParams['id'];
-      }
-    );
+    this.route.url.subscribe((url) =>{
+      this.id = parseInt(url[1].path)
+    });
+
+    console.log(this.id);
 
     this.produtoService.findOne(this.id)
-    .subscribe(res => this.produtos = res);
-    
+    .subscribe(res => {
+      console.log(res);
+      this.produto = res["data"]
+    });
   }
 
 }
