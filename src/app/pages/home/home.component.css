@@ -65,63 +65,6 @@
     right: 0px;
   }
   
-  /*----------------------------*\
-      Breadcrumb
-  \*----------------------------*/
-  
-  #breadcrumb {
-    padding: 30px 0px;
-    background: #FBFBFC;
-    border-bottom: 1px solid #E4E7ED;
-    margin-bottom: 30px;
-  }
-  
-  #breadcrumb .breadcrumb-header {
-    display: inline-block;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-right: 15px;
-    text-transform: uppercase;
-  }
-  
-  #breadcrumb .breadcrumb-tree {
-    display: inline-block;
-  }
-  
-  #breadcrumb .breadcrumb-tree li {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  
-  #breadcrumb .breadcrumb-tree li+li {
-    margin-left: 10px;
-  }
-  
-  #breadcrumb .breadcrumb-tree li+li:before {
-    content: '/';
-    display: inline-block;
-    color: #8D99AE;
-    margin-right: 10px;
-  }
-  
-  #breadcrumb .breadcrumb-tree li a {
-    color: #8D99AE;
-  }
-  
-  #breadcrumb .breadcrumb-tree li a:hover {
-    color: #b9420f;
-  }
-  
-   /*=========================================================
-      06 -> PRODUCT
-  ===========================================================*/
-  
-  /*----------------------------*\
-      product
-  \*----------------------------*/
-  
   .product {
     position: relative;
     margin: 15px 0px;
@@ -421,65 +364,7 @@
     border: none;
     color: #FFF;
   }
-  
-  /*----------------------------*\
-      Products slick
-  \*----------------------------*/
-  
-  .products-slick .slick-list {
-    padding-bottom: 60px;
-    margin-bottom: -60px;
-    z-index: 2;
-  }
-  
-  .products-slick .product.slick-slide {
-    margin: 15px;
-  }
-  
-  .products-tabs>.tab-pane {
-    display: block;
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow-y: hidden;
-    padding-bottom: 60px;
-    margin-bottom: -60px;
-  }
-  
-  .products-tabs>.tab-pane.active {
-    opacity: 1;
-    visibility: visible;
-    height: auto;
-  }
-  
-  .products-slick-nav {
-    position: absolute;
-    right: 15px;
-    z-index: 10;
-  }
-  
-  .products-slick-nav .slick-prev, .products-slick-nav .slick-next {
-    position: static;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
-    width: 20px;
-    height: 20px;
-    display: inline-block !important;
-    margin: 0px 2px;
-  }
-  
-  .products-slick-nav .slick-prev:before, .products-slick-nav .slick-next:before {
-    font-size: 14px;
-  }
 
-  /*=========================================================
-      07 -> PRODUCTS PAGE
-  ===========================================================*/
-  
-  /*----------------------------*\
-      Aside
-  \*----------------------------*/
   
   .aside+.aside {
     margin-top: 30px;
@@ -548,67 +433,14 @@
     width: calc(50% - 7px);
   }
   
-  /*----------------------------*\
-      Store
-  \*----------------------------*/
-  
   .store-filter {
     margin-bottom: 15px;
     margin-top: 15px;
   }
   
-  /*-- Store Sort --*/
-  
   .store-sort {
     display: inline-block;
   }
-  
-  .store-sort label {
-    font-weight: 500;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-right: 15px;
-  }
-  
-  /*-- Store Grid --*/
-  
-  .store-grid {
-    float: right;
-  }
-  
-  .store-grid li {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background-color: #FFF;
-    border: 1px solid #E4E7ED;
-    text-align: center;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-  }
-  
-  .store-grid li+li {
-    margin-left: 5px;
-  }
-  
-  .store-grid li:hover {
-    background-color: #E4E7ED;
-    color: #b9420f;
-  }
-  
-  .store-grid li.active {
-    background-color: #b9420f;
-    border-color: #b9420f;
-    color: #FFF;
-    cursor: default;
-  }
-  
-  .store-grid li a {
-    display: block;
-  }
-  
-  /*-- Store Pagination --*/
   
   .store-pagination {
     float: right;
