@@ -14,6 +14,7 @@ export class PagamentoComponent implements AfterViewChecked {
 
   addScript: boolean = false;
   paypalLoad: boolean = true;
+  tabHidded: string = 'none';
 
   totalValue: number = 30 // Esse valor total deve ser retornado pela api;
 
@@ -60,6 +61,10 @@ export class PagamentoComponent implements AfterViewChecked {
       scripttagElement.onload = resolve;
       document.body.appendChild(scripttagElement);
     })
+  }
+
+  changeTab(tab: string){
+    this.tabHidded = tab;
   }
 
 }
