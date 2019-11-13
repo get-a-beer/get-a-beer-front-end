@@ -1,6 +1,8 @@
 import { Component, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Boleto } from '../../model/boleto';
+import { PagService } from '../../providers/pag.service'
 
 declare let paypal: any;
 @Component({
@@ -10,7 +12,10 @@ declare let paypal: any;
 })
 export class PagamentoComponent implements AfterViewChecked {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private pagService: PagService
+  ) { }
 
   addScript: boolean = false;
   paypalLoad: boolean = true;
@@ -65,6 +70,24 @@ export class PagamentoComponent implements AfterViewChecked {
 
   changeTab(tab: string){
     this.tabHidded = tab;
+  }
+
+  gerarBoleto(){
+    let body: Boleto = {
+      firstDueDate: `${new Date()}`,
+      numberOfPayments: `1`,
+      periodicity: `monthly`,
+      amount: `${this.totalValue}`,
+      description: `Compra de cerveja`,
+      customer: {
+        name: `Matheus Barbosa`,
+        document: {
+          type: `CPF`,
+          value: `16306489738`
+        }
+      }
+    }
+    this.pagService.boletoGenerate(body).subscribe(() => console.log('funcionou'), () => console.log('Nao funcionou'))
   }
 
 }
