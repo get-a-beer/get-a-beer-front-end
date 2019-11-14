@@ -1,217 +1,167 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-	<body>
-		<!-- HEADER -->
-		<app-header></app-header>
-		<!-- /HEADER -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <!-- HEADER -->
+  <app-header></app-header>
+  <!-- /HEADER -->
+  
+  <!-- NAVIGATION -->
+  <app-navigation></app-navigation>
+  <!-- /NAVIGATION -->
+  
+  <!-- CAROUSEL SECTION -->
+  <app-carousel-section></app-carousel-section>
+  <!-- /CAROUSEL SECTION -->
+  
+  <!-- SECTION -->
+  <div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <!-- ASIDE -->
+        <div id="aside" class="col-md-3">
+          <!-- aside Widget -->
+          <div class="aside">
+            <h3 class="aside-title">Categorias</h3>
+            <div class="checkbox-filter">
+              
+              <div class="input-checkbox" *ngFor="let categoria of categorias">
+                <input
+                  type="checkbox"
+                  value="{{categoria.value}}"
+                  id="{{'category-'+categoria.value}}"
+                  (change)="setFiltroCategoria(categoria.value)">
+                <label for="{{'category-'+categoria.value}}">
+                  <span></span>
+                  {{categoria.nome}}
+                  <small>({{categoria.qtd}})</small>
+                </label>
+              </div>
 
-		<!-- NAVIGATION -->
-		<app-navigation></app-navigation>
-		<!-- /NAVIGATION -->
-
-		<!-- CAROUSEL SECTION -->
-		<app-carousel-section></app-carousel-section>
-		<!-- /CAROUSEL SECTION -->
-		
-		<!-- SECTION -->
-        <div class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <!-- ASIDE -->
-                    <div id="aside" class="col-md-3">
-                        <!-- aside Widget -->
-                        <div class="aside">
-                            <h3 class="aside-title">Categorias</h3>
-                            <div class="checkbox-filter">
-
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="leves" id="category-1">
-                                    <label for="category-1">
-                                        <span></span>
-                                        Leves
-                                        <small>(120)</small>
-                                    </label>
-                                </div>
-
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="maltadas" id="category-2">
-                                    <label for="category-2">
-                                        <span></span>
-                                        Maltadas
-                                        <small>(740)</small>
-                                    </label>
-                                </div>
-
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="lupuladas" id="category-3">
-                                    <label for="category-3">
-                                        <span></span>
-                                        Lupuladas
-                                        <small>(1450)</small>
-                                    </label>
-                                </div>
-
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="torradas" id="category-4">
-                                    <label for="category-4">
-                                        <span></span>
-                                        Torradas
-                                        <small>(578)</small>
-                                    </label>
-                                </div>
-
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="alcoolicas" id="category-5">
-                                    <label for="category-5">
-                                        <span></span>
-                                        Alcoolicas
-                                        <small>(120)</small>
-                                    </label>
-                                </div>
-
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="complexas" id="category-6">
-                                    <label for="category-6">
-                                        <span></span>
-                                        Complexas
-                                        <small>(740)</small>
-                                    </label>
-                                </div>
-                                
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="frutadas" id="category-6">
-                                    <label for="category-6">
-                                        <span></span>
-                                        Frutadas
-                                        <small>(40)</small>
-                                    </label>
-                                </div>
-                                
-                                <div class="input-checkbox">
-                                    <input type="checkbox" value="outras" id="category-6">
-                                    <label for="category-6">
-                                        <span></span>
-                                        Outras
-                                        <small>(10)</small>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /aside Widget -->
-
-                        <!-- aside Widget -->
-                        <div class="aside">
-                            <h3 class="aside-title">Preço</h3>
-                            <div class="price-filter">
-                                <div id="price-slider"></div>
-                                <div class="input-number price-min">
-                                    <input id="price-min" type="number" value = 0>
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
-                                </div>
-                                <span>-</span>
-                                <div class="input-number price-max">
-                                    <input id="price-max" type="number" value=5000>
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /aside Widget -->
-
-                        <!-- aside Widget -->
-                        <div class="aside">
-                            <h3 class="aside-title">Mais vendido</h3>
-                            <div class="product-widget" *ngFor="let produto of produtos | slice:0:5">
-                                <div class="product-img">
-                                    <img src="../assets/product01.png" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">{{produto.categoria}}</p>
-                                    <h3 class="product-name"><a href="/cerveja/{{produto.id}}">{{produto.produto.nome}}</a></h3>
-                                    <h4 class="product-price">${{produto.produto.valor}}.00 <del class="product-old-price">${{produto.produto.valor}}.90</del></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /aside Widget -->
-                    </div>
-                    <!-- /ASIDE -->
-
-                    <!-- STORE -->
-                    <div id="store" class="col-md-9">
-                        <!-- store products -->
-                        <div class="row">
-                            <!-- product -->
-                            <div class="col-md-4 col-xs-6" *ngFor="let produto of produtos" >
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="../assets/product03.png" alt="">
-                                        <div class="product-label">
-                                            <!--<span class="sale">-30%</span>-->
-                                            <span class="new">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">{{produto.categoria}}</p>
-                                        <h3 class="product-name">{{produto.produto.nome}}</h3>
-                                        <h4 class="product-price">${{produto.produto.valor}}.00 <del class="product-old-price">${{produto.produto.valor}}.0</del></h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Desejos</span></button>
-                                            <button class="quick-view"><a href="/cerveja/{{produto.id}}"><i class="fa fa-eye"></i></a><span class="tooltipp">Visualizar</span></button>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn" (click)="adicionarNoCarrinho(produto)"><i class="fa fa-shopping-cart"></i>Colocar no Carrinho</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /product -->
-
-                            <div class="clearfix visible-sm visible-xs"></div>
-                        </div>
-                        <!-- /store products -->
-
-                        <!-- store bottom filter -->
-                        <div class="store-filter clearfix">
-                            <span class="store-qty">Mostrando 20-100 produtos</span>
-                            <ul class="store-pagination">
-                                <li class="active">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- /store bottom filter -->
-                    </div>
-                    <!-- /STORE -->
-                </div>
-                <!-- /row -->
             </div>
-            <!-- /container -->
+          </div>
+          <!-- /aside Widget -->
+          
+          <!-- aside Widget -->
+          <div class="aside">
+            <h3 class="aside-title">Preço</h3>
+            <div class="price-filter">
+              <div id="price-slider"></div>
+              <div class="input-number price-min">
+                <input
+                  id="price-min"
+                  type="number"
+                  (change)="updateProdutos()"
+                  [(ngModel)]="filtros.valorMaiorQue">
+                <span class="qty-up">+</span>
+                <span class="qty-down">-</span>
+              </div>
+              <span>-</span>
+              <div class="input-number price-max">
+                <input
+                  id="price-max"
+                  type="number"
+                  (change)="updateProdutos()"
+                  [(ngModel)]="filtros.valorMenorQue">
+                <span class="qty-up">+</span>
+                <span class="qty-down">-</span>
+              </div>
+            </div>
+          </div>
+          <!-- /aside Widget -->
+          
+          <!-- aside Widget -->
+          <div class="aside">
+            <h3 class="aside-title">Mais vendido</h3>
+            <div class="product-widget" *ngFor="let produto of produtos | slice:0:5">
+              <div class="product-img">
+                <img src="../assets/product01.png" alt="">
+              </div>
+              <div class="product-body">
+                <p class="product-category">{{produto.categoria}}</p>
+                <h3 class="product-name"><a href="/cerveja/{{produto.id}}">{{produto.produto.nome}}</a></h3>
+                <h4 class="product-price">${{produto.produto.valor}}.00 <del class="product-old-price">${{produto.produto.valor}}.90</del></h4>
+              </div>
+            </div>
+          </div>
+          <!-- /aside Widget -->
         </div>
-		<!-- /SECTION -->
-
-		<!-- NEWSLETTER -->
-		<app-newsletter></app-newsletter>
-		<!-- /NEWSLETTER -->
-
-		<!-- FOOTER -->
-		<app-footer></app-footer>
-		<!-- /FOOTER -->
-
-		<!-- jQuery Plugins -->
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
-	</body>
+        <!-- /ASIDE -->
+        
+        <!-- STORE -->
+        <div id="store" class="col-md-9">
+          <!-- store products -->
+          <div class="row">
+            <!-- product -->
+            <div class="col-md-4 col-xs-6" *ngFor="let produto of produtos" >
+              <div class="product">
+                <div class="product-img">
+                  <img src="../assets/product03.png" alt="">
+                  <div class="product-label">
+                    <!--<span class="sale">-30%</span>-->
+                    <span class="new">NEW</span>
+                  </div>
+                </div>
+                <div class="product-body">
+                  <p class="product-category">{{produto.categoria}}</p>
+                  <h3 class="product-name">{{produto.produto.nome}}</h3>
+                  <h4 class="product-price">${{produto.produto.valor}}.00 <del class="product-old-price">${{produto.produto.valor}}.0</del></h4>
+                  <div class="product-rating">
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <div class="product-btns">
+                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Desejos</span></button>
+                    <button class="quick-view"><a href="/cerveja/{{produto.id}}"><i class="fa fa-eye"></i></a><span class="tooltipp">Visualizar</span></button>
+                  </div>
+                </div>
+                <div class="add-to-cart">
+                  <button class="add-to-cart-btn" (click)="adicionarNoCarrinho(produto)"><i class="fa fa-shopping-cart"></i>Colocar no Carrinho</button>
+                </div>
+              </div>
+            </div>
+            <!-- /product -->
+            
+            <div class="clearfix visible-sm visible-xs"></div>
+          </div>
+          <!-- /store products -->
+          
+          <!-- store bottom filter -->
+          <div class="store-filter clearfix">
+            <span class="store-qty">Mostrando 20-100 produtos</span>
+            <ul class="store-pagination">
+              <li class="active">1</li>
+              <li><a href="#">2</a></li>
+              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+          <!-- /store bottom filter -->
+        </div>
+        <!-- /STORE -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /SECTION -->
+  
+  <!-- NEWSLETTER -->
+  <app-newsletter></app-newsletter>
+  <!-- /NEWSLETTER -->
+  
+  <!-- FOOTER -->
+  <app-footer></app-footer>
+  <!-- /FOOTER -->
+  
+  <!-- jQuery Plugins -->
+  <script src="js/slick.min.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/jquery.zoom.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>

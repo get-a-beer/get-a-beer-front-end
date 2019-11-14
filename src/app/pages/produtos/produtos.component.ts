@@ -9,7 +9,7 @@ import { Produto } from '../../model/produto.model';
 })
 export class ProdutosComponent implements OnInit {
 
-  responseProdutos: Produto;
+  responseProdutos: Produto[];
 
   constructor( private produtoService: ProdutoService) { }
 
