@@ -14,7 +14,7 @@ export class PagamentoComponent implements AfterViewChecked {
 
   constructor(
     private router: Router,
-    private pagService: PagService
+    //private pagService: PagService
   ) { }
 
   addScript: boolean = false;
@@ -87,7 +87,8 @@ export class PagamentoComponent implements AfterViewChecked {
         }
       }
     }
-    this.pagService.boletoGenerate(body).subscribe(() => console.log('funcionou'), () => console.log('Nao funcionou'))
+    //this.pagService.boletoGenerate(body).subscribe(() => console.log('funcionou'), () => console.log('Nao funcionou'))
+    console.log(body)
   }
 
 }
