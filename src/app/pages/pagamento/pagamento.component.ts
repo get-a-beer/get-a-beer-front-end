@@ -14,7 +14,7 @@ export class PagamentoComponent implements AfterViewChecked {
 
   constructor(
     private router: Router,
-    //private pagService: PagService
+    private pagService: PagService
   ) { }
 
   addScript: boolean = false;
@@ -72,6 +72,27 @@ export class PagamentoComponent implements AfterViewChecked {
     this.tabHidded = tab;
   }
 
+  /*
+  {
+  "firstDueDate": "2019-11-18",
+  "numberOfPayments": "1",
+  "periodicity": "monthly",
+  "amount": "10.38",
+  "description": "Compra de cerveja",
+  "customer": {
+    "name": "Matheus Barbosa",
+    "email": "matheuskleber09@yahoo.com.br",
+    "phone": {
+    	"areaCode": "27",
+    	"number": "998773525"
+    },
+    "document": {
+      "type": "CPF",
+      "value": "16306489738"
+    }
+  }
+}
+  */
   gerarBoleto(){
     let body: Boleto = {
       firstDueDate: `${new Date()}`,
@@ -81,14 +102,19 @@ export class PagamentoComponent implements AfterViewChecked {
       description: `Compra de cerveja`,
       customer: {
         name: `Matheus Barbosa`,
+        email: `matheuskleber09@yahoo.com.br`,
         document: {
           type: `CPF`,
           value: `16306489738`
+        },
+        phone: {
+          areaCode: `27`,
+          number: `998773525`
         }
       }
     }
-    //this.pagService.boletoGenerate(body).subscribe(() => console.log('funcionou'), () => console.log('Nao funcionou'))
-    console.log(body)
+    this.pagService.boletoGenerate(body).subscribe(() => console.log('funcionou'), () => console.log('Nao funcionou'))
+    //console.log(body)
   }
 
 }

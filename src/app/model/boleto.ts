@@ -9,6 +9,11 @@ export class Boleto{
             type: string,
             value: string
         };
-        name: string
+        phone: {
+            areaCode: string,
+            number: string,
+        };
+        name: string, 
+        email: string
     }
 }

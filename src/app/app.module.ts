@@ -72,7 +72,7 @@ import { PagService } from './providers/pag.service';
     CervejariaService,
     ProdutoService,
     ClienteService,
-    //PagService,
+    PagService,
   ],
   bootstrap: [AppComponent]
 })
