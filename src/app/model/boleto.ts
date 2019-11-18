@@ -1,4 +1,4 @@
-export class Boleto{
+export class BoletoPayment{
     firstDueDate: string;
     numberOfPayments: string;
     periodicity: string;
@@ -16,4 +16,15 @@ export class Boleto{
         name: string, 
         email: string
     }
+}
+
+export class BoletoResponse{
+    boletos: [
+        {
+            code: string,
+            paymentLink: string,
+            barcode: string,
+            dueDate: string
+        }
+    ]
 }

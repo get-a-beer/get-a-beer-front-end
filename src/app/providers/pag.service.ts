@@ -1,5 +1,5 @@
 import { Observable, from } from 'rxjs';
-import { Boleto } from '../model/boleto';
+import { BoletoPayment, BoletoResponse } from '../model/boleto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -14,17 +14,8 @@ export class PagService {
     private http: HttpClient
   ) { }
 
-  boletoGenerate(body: Boleto): Observable<any>{
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
-      })
-    }
-    return this.http.post<Boleto>(this.url, body, httpOptions).pipe();
+  boletoGenerate(body: BoletoPayment): Observable<any>{
+    return this.http.post<BoletoPayment>(this.url, body).pipe();
   }
 
 }

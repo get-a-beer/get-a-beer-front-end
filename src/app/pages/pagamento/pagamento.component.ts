@@ -1,7 +1,7 @@
 import { Component, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Boleto } from '../../model/boleto';
+import { BoletoPayment } from '../../model/boleto';
 import { PagService } from '../../providers/pag.service'
 
 declare let paypal: any;
@@ -94,7 +94,7 @@ export class PagamentoComponent implements AfterViewChecked {
 }
   */
   gerarBoleto(){
-    let body: Boleto = {
+    let body: BoletoPayment = {
       firstDueDate: `${new Date()}`,
       numberOfPayments: `1`,
       periodicity: `monthly`,
