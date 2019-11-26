@@ -19,12 +19,14 @@ export class BoletoPayment{
 }
 
 export class BoletoResponse{
-    boletos: [
-        {
-            code: string,
-            paymentLink: string,
-            barcode: string,
-            dueDate: string
-        }
-    ]
+    data: {
+        boletos: [
+            {
+                code: string,
+                paymentLink: string,
+                barcode: string,
+                dueDate: string
+            }
+        ]
+    }
 }
