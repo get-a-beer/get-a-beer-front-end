@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from "jquery";
-import {CartService} from 'src/app/providers/cart.service';
-import { Produto } from 'src/app/model/produto.model';
-import { range } from 'rxjs';
+import { CartService } from '../../providers/cart.service';
+import { Produto } from '../../model/produto.model';
 
 @Component({
   selector: 'app-header',
@@ -17,20 +15,6 @@ export class HeaderComponent implements OnInit {
   show: boolean = false;
   
   ngOnInit() {
-    //Expandir e recolher carrinho:
-    /*
-    $(document).mouseup(function(e){   
-        var obj = $(".dropdown");
-      if (!obj.is(e.target) && obj.has(e.target).length === 1){
-        console.log(e);
-        $('.dropdown').addClass('open'); 
-      }
-      else{
-        $('.dropdown').removeClass('open');
-      }
-    });
-    */
-    //sessionStorage.removeItem("cart")
     let cartSession = sessionStorage.getItem("cart");
     if(cartSession != null){
      this.cartService.items = JSON.parse(cartSession);
@@ -47,9 +31,9 @@ export class HeaderComponent implements OnInit {
     return this.cartService.items;
   }
 
-  removeItem(Produto){
+  removeItem(){
     let c = this.cartService
-    return c.removeItem(Produto)
+    //return c.removeItem(Produto)
   }
 
   total() :number{

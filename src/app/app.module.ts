@@ -34,6 +34,7 @@ import { NewsletterComponent } from './componets/newsletter/newsletter.component
 import { FooterComponent } from './componets/footer/footer.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PagService } from './providers/pag.service';
+import { CartService } from './providers/cart.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { PagService } from './providers/pag.service';
     ProdutoService,
     ClienteService,
     PagService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })
