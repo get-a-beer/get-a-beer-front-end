@@ -1,6 +1,8 @@
 import { Component, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { BoletoPayment, BoletoResponse } from '../../model/boleto';
+import { PagService } from '../../providers/pag.service'
 
 declare let paypal: any;
 @Component({
@@ -10,7 +12,10 @@ declare let paypal: any;
 })
 export class PagamentoComponent implements AfterViewChecked {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private pagService: PagService
+  ) { }
 
   addScript: boolean = false;
   paypalLoad: boolean = true;
@@ -65,6 +70,50 @@ export class PagamentoComponent implements AfterViewChecked {
 
   changeTab(tab: string){
     this.tabHidded = tab;
+  }
+
+  gerarBoleto(){
+    let today: Date = new Date();
+    today.setDate(today.getDate() + 1)
+    const paymentDate: string = today.toISOString().split('T')[0]
+    
+    let body: BoletoPayment = {
+      firstDueDate: `${paymentDate}`,
+      numberOfPayments: `1`,
+      periodicity: `monthly`,
+      amount: `${this.totalValue}`,
+      description: `Compra de cerveja`,
+      customer: {
+        name: `Matheus Barbosa`,
+        email: `matheuskleber09@yahoo.com.br`,
+        document: {
+          type: `CPF`,
+          value: `16306489738`
+        },
+        phone: {
+          areaCode: `27`,
+          number: `998773525`
+        }
+      }
+    }
+    this.pagService.boletoGenerate(body).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this))
+  }
+
+  redirectHandler(response: BoletoResponse){
+    Swal.fire({
+      title: 'Boleto gerado com sucesso!',
+      html: `<a href=${response.data.boletos[0].paymentLink} target="_blank" >Visualizar boleto</a>`,
+      type: 'success'
+    })
+    this.router.navigate(['home'])
+  }
+
+  errorHandler(){
+    Swal.fire({
+      title: 'Oops!',
+      text: 'Parece que houve um problema inesperado',
+      type: 'error'
+    })
   }
 
 }

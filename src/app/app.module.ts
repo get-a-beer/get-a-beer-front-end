@@ -33,7 +33,7 @@ import { CarouselSectionComponent } from './componets/carousel-section/carousel-
 import { NewsletterComponent } from './componets/newsletter/newsletter.component';
 import { FooterComponent } from './componets/footer/footer.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-
+import { PagService } from './providers/pag.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +72,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     CervejariaService,
     ProdutoService,
     ClienteService,
+    PagService,
   ],
   bootstrap: [AppComponent]
 })
