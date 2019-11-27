@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PagamentoComponent } from './pages/pagamento/pagamento.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
   { path: 'cerveja/:id', component: CervejaComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'produtos/create', component: CreateProdutoComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'pagamento', component: PagamentoComponent },
-  {path: 'checkout', component: CheckoutComponent}
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({

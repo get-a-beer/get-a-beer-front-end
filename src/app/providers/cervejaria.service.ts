@@ -12,4 +12,8 @@ export class CervejariaService {
   signup(cervejaria: Cervejaria): Observable<Cervejaria> {
     return this.http.post<Cervejaria>(this.api, cervejaria);
   }
+
+  findAll(): Observable<Cervejaria[]> {
+    return this.http.get<Cervejaria[]>(this.api);
+  }
 }

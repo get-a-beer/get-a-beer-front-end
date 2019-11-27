@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+
+    <nav class="navbar" id="header">
+      <span class="navbar-brand mb-0 h1">
+        <img src="../assets/logo.png" alt="" height="50px">
+        Painel Administrativo
+      </span>
+    </nav>
+    
+    <section class="row" id="main">
+      <div class="col-md-2" id="menu-bar">
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-lg btn-block" (click)="showView(0)">Vendedores</button>
+          <button type="button" class="btn btn-lg btn-block" (click)="showView(1)">Clientes</button>
+        </div>
+      </div>
+      <div class="col-md-10" id="list-view">
+        
+        <div *ngIf="views[0]" id="sellers-list">
+          <div class="card" *ngFor="let seller of sellers">
+            <div class="card-header">
+              <h5 class="card-title">{{seller.pessoa.nome}}</h5>
+            </div>
+            <div class="card-body">
+              <p>CNPJ: {{seller.cnpj}} <br> Telefone: {{seller.pessoa.telefone}} <br> E-mail: {{seller.pessoa.email}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="views[1]" id="clients-list">
+
+          <!-- TODO: Barra de pesquisa -->
+          <!-- <nav class="navbar">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+          </nav> -->
+
+          <div class="card" *ngFor="let client of clients">
+            <div class="card-header">
+              <h5 class="card-title">{{client.pessoa.nome}}</h5>
+            </div>
+            <div class="card-body">
+              <p>CPF: {{client.cpf}} <br> Telefone: {{client.pessoa.telefone}} <br> E-mail: {{client.pessoa.email}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </body>
+</html>
