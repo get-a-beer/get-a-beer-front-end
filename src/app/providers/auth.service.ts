@@ -34,16 +34,15 @@ export class AuthService{
         retry(1),
         catchError(this.errorHandl),
         map( (response) => {
-          const cliente: any = { //Trocar o tipo de retorno para Cliente
+          const cliente: Cliente = { //Trocar o tipo de retorno para Cliente
             usuario: response.username,
-            //email: response.pessoa.email,
-            //nome: response.pessoa.nome,
-            //senha: '',
-            //dataNascimento: response.dataNascimento,
-            //cpf: response.cpf,
-            //telefone: response.pessoa.telefone
+            email: response.cliente.pessoa.email,
+            nome: response.cliente.pessoa.nome,
+            senha: '',
+            dataNascimento: response.cliente.dataNascimento,
+            cpf: response.cliente.cpf,
+            telefone: response.cliente.pessoa.telefone
           }
-          console.log(cliente)
           return cliente;
         }),
       )

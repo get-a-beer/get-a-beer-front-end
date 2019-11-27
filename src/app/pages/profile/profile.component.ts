@@ -46,13 +46,11 @@ export class ProfileComponent implements OnInit {
 
   loadProfile(body: Cliente){
     this.profileForm.controls['usuario'].setValue(body.usuario)
-    /*
     this.profileForm.controls['nome'].setValue(body.nome)
     this.profileForm.controls['email'].setValue(body.email)
     this.profileForm.controls['cpf'].setValue(body.cpf)
     this.profileForm.controls['dataNascimento'].setValue(body.dataNascimento)
     this.profileForm.controls['telefone'].setValue(body.telefone)
-    */
   }
 
   redirectHandler(){
