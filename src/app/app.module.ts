@@ -33,6 +33,7 @@ import { CarouselSectionComponent } from './componets/carousel-section/carousel-
 import { NewsletterComponent } from './componets/newsletter/newsletter.component';
 import { FooterComponent } from './componets/footer/footer.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { PagService } from './providers/pag.service';
 import { CartService } from './providers/cart.service';
 @NgModule({
@@ -56,6 +57,7 @@ import { CartService } from './providers/cart.service';
     NewsletterComponent,
     FooterComponent,
     CheckoutComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,8 @@ import { Cliente } from '../model/cliente';
 
 @Injectable()
 export class ClienteService{
-    
     constructor(private http: HttpClient){}
-    
+
     private api = `https://api-get-beer.herokuapp.com/cliente/`;
 
     create(body: Cliente): Observable<Cliente>{
@@ -17,7 +16,7 @@ export class ClienteService{
         catchError(this.errorHandl)
       );
     }
-    
+
     update(body: Cliente, id: number): Observable<Cliente>{
       return this.http.put<Cliente>(this.api + `${id}`, body).pipe(
         retry(1),
@@ -25,11 +24,11 @@ export class ClienteService{
       );
     }
 
-    findAll(): Observable<Cliente>{
-      return this.http.get<Cliente>(this.api).pipe(
+    findAll(): Observable<Cliente[]>{
+      return this.http.get<Cliente[]>(this.api).pipe(
         retry(1),
         catchError(this.errorHandl)
-      )
+      );
     }
 
     findOne(id: number): Observable<Cliente>{
@@ -45,12 +44,12 @@ export class ClienteService{
             dataNascimento: response.dataNascimento,
             cpf: response.cpf,
             telefone: response.pessoa.telefone
-          }
+          };
           return cliente;
         }),
       )
     }
-    
+
     errorHandl(error) {
         let errorMessage = '';
         if(error.error instanceof ErrorEvent) {
