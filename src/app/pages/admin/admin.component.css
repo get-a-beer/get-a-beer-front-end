@@ -35,13 +35,13 @@ body {
 }
 
 #sellers-list, #clients-list {
-  display: flex;
-  flex-flow: wrap;
+  /* display: flex;
+  flex-flow: wrap; */
 }
 
 .card {
   margin: 15px;
-  width: 30%;
+  margin-right: 30px;
 }
 
 #clients-list {
