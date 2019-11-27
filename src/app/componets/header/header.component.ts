@@ -31,9 +31,9 @@ export class HeaderComponent implements OnInit {
     return this.cartService.items;
   }
 
-  removeItem(){
+  removeItem(produto){
     let c = this.cartService
-    //return c.removeItem(Produto)
+    return c.removeItem(produto)
   }
 
   total() :number{
