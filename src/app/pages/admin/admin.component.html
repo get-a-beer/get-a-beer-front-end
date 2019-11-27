@@ -19,33 +19,46 @@
       </div>
       <div class="col-md-10" id="list-view">
         
-        <div *ngIf="views[0]" id="sellers-list">
-          <div class="card" *ngFor="let seller of sellers">
-            <div class="card-header">
-              <h5 class="card-title">{{seller.pessoa.nome}}</h5>
-            </div>
-            <div class="card-body">
-              <p>CNPJ: {{seller.cnpj}} <br> Telefone: {{seller.pessoa.telefone}} <br> E-mail: {{seller.pessoa.email}}</p>
+        <div *ngIf="views[0]">
+          <nav class="navbar">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="sellersSearch"
+              [(ngModel)]="sellersSearch" (change)="updateSellers()">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+          </nav>
+
+          <div id="sellers-list">
+            <div class="card" *ngFor="let seller of sellers">
+              <div class="card-header">
+                <h5 class="card-title">{{seller.pessoa.nome}}</h5>
+              </div>
+              <div class="card-body">
+                <p>CNPJ: {{seller.cnpj}} <br> Telefone: {{seller.pessoa.telefone}} <br> E-mail: {{seller.pessoa.email}}</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div *ngIf="views[1]" id="clients-list">
 
-          <!-- TODO: Barra de pesquisa -->
-          <!-- <nav class="navbar">
+        <div *ngIf="views[1]">
+          <nav class="navbar">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="clientsSearch"
+              [(ngModel)]="clientsSearch" (change)="updateClients()">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
-          </nav> -->
+          </nav>
 
-          <div class="card" *ngFor="let client of clients">
-            <div class="card-header">
-              <h5 class="card-title">{{client.pessoa.nome}}</h5>
-            </div>
-            <div class="card-body">
-              <p>CPF: {{client.cpf}} <br> Telefone: {{client.pessoa.telefone}} <br> E-mail: {{client.pessoa.email}}</p>
+          <div id="clients-list">
+  
+            <div class="card" *ngFor="let client of clients">
+              <div class="card-header">
+                <h5 class="card-title">{{client.pessoa.nome}}</h5>
+              </div>
+              <div class="card-body">
+                <p>CPF: {{client.cpf}} <br> Telefone: {{client.pessoa.telefone}} <br> E-mail: {{client.pessoa.email}}</p>
+              </div>
             </div>
           </div>
         </div>
