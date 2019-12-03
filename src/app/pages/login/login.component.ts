@@ -3,9 +3,12 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
-import { AuthService } from '../../providers/auth.service';
+import { InternalAuthService } from '../../providers/auth.service';
 import { Login } from '../../model/login';
+import { Socialusers } from '../../model/socialUsers';
 import { JwtToken } from 'src/app/model/jwtToken';
+import { AuthService } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';  
 
 @Component({
   selector: 'app-login',
@@ -15,14 +18,16 @@ import { JwtToken } from 'src/app/model/jwtToken';
 export class LoginComponent implements OnInit {
   
   loginForm;
+  socialusers = new Socialusers();
 
   ngOnInit() {  
   }
 
   constructor(
-    private auth: AuthService,
+    private auth: InternalAuthService,
     private formBuilder: FormBuilder,
     private router: Router,
+    public OAuth: AuthService  
   ){
     this.loginForm = this.formBuilder.group({
       username: '',
@@ -46,5 +51,21 @@ export class LoginComponent implements OnInit {
       type: 'error'
     })
   }
+
+
+  public socialSignIn(socialProvider: string) {  
+    let socialPlatformProvider;  
+    if (socialProvider === 'facebook') {  
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;  
+    } else if (socialProvider === 'google') {  
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;  
+    }  
+    this.OAuth.signIn(socialPlatformProvider).then(socialusers => {  
+      console.log(socialProvider, socialusers);  
+      console.log(socialusers);  
+      //this.Savesresponse(socialusers); 
+      this.router.navigate(['home']);
+    });  
+  }  
 
 }

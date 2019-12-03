@@ -18,7 +18,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SignupCervejariaComponent } from './pages/signup-cervejaria/signup-cervejaria.component';
 
 import { ViaCepService } from './providers/viacep.service';
-import { AuthService } from './providers/auth.service';
+import { InternalAuthService } from './providers/auth.service';
 import { CervejariaService } from './providers/cervejaria.service';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { ProdutoService } from './providers/produto.service';
@@ -36,6 +36,28 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { PagService } from './providers/pag.service';
 import { CartService } from './providers/cart.service';
+
+
+import { GoogleLoginProvider, FacebookLoginProvider, AuthService } from 'angularx-social-login';  
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';  
+
+
+export function socialConfigs() {  
+  const config = new AuthServiceConfig(  
+    [  
+      {  
+        id: FacebookLoginProvider.PROVIDER_ID,  
+        provider: new FacebookLoginProvider('app -id')  
+      },  
+      {  
+        id: GoogleLoginProvider.PROVIDER_ID,  
+        provider: new GoogleLoginProvider('425530256897-0qu0fn0flutl6f99bq3p1tm7fbqahrc7.apps.googleusercontent.com')  
+      }  
+    ]  
+  );  
+  return config;  
+} 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,12 +93,17 @@ import { CartService } from './providers/cart.service';
   ],
   providers: [
     ViaCepService,
-    AuthService,
+    InternalAuthService,
     CervejariaService,
     ProdutoService,
     ClienteService,
     PagService,
-    CartService
+    CartService,
+    AuthService,  
+    {  
+      provide: AuthServiceConfig,  
+      useFactory: socialConfigs  
+    } 
   ],
   bootstrap: [AppComponent]
 })

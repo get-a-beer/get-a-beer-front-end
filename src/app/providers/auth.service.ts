@@ -7,7 +7,7 @@ import { JwtToken } from '../model/jwtToken';
 import { Cliente } from '../model/cliente';
 
 @Injectable()
-export class AuthService{
+export class InternalAuthService{
 
     constructor(
       private http: HttpClient

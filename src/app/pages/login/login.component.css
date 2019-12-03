@@ -43,13 +43,22 @@
         margin-top: 100px;
     }
     .login_btn {
-        margin-top: 25px;
-        margin-bottom: 10px;
+        margin-top: 20x;
+        margin-bottom: 5px;
         width: 100%;
         background: #ee9c0f !important;
         color: white !important;
     }
     .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .login_btn_google {
+        width: 100%;
+        background: #ff4d17 !important;
+        color: white !important;
+    }
+    .login_btn_google:focus {
         box-shadow: none !important;
         outline: 0px !important;
     }

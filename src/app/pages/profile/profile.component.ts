@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, SelectControlValueAccessor } from '@angular/f
 import { Cliente } from 'src/app/model/cliente';
 import { ClienteService } from 'src/app/providers/cliente.service';
 import Swal from 'sweetalert2';
-import { AuthService } from 'src/app/providers/auth.service';
+import { InternalAuthService } from 'src/app/providers/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private clienteService: ClienteService,
-    private authService: AuthService
+    private authService: InternalAuthService
   ) 
   {
     this.profileForm = this.formBuilder.group({
