@@ -6,6 +6,8 @@ import Swal from 'sweetalert2';
 import { ClienteService } from '../../providers/cliente.service';
 import { Cliente } from '../../model/cliente';
 
+import { AuthService } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';  
 
 @Component({
   selector: 'app-signup',
@@ -21,6 +23,7 @@ export class SignupComponent implements OnInit {
     private clienteService: ClienteService,
     private formBuilder: FormBuilder,
     private router: Router,
+    public OAuth: AuthService
   ){
     this.signupForm = this.formBuilder.group({
       nome: '',
@@ -57,4 +60,22 @@ export class SignupComponent implements OnInit {
     })
   }
 
+  public socialSignIn(socialProvider: string) {
+    let socialPlatformProvider;  
+    if (socialProvider === 'google') {  
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;  
+    }  
+    this.OAuth.signIn(socialPlatformProvider).then(socialusers => {  
+       const client: Cliente = {
+         nome: socialusers.name,
+         email: socialusers.email,
+         senha: socialusers.id,
+         usuario: socialusers.email,
+         cpf: 'null',
+         telefone: 'null',
+         dataNascimento: new Date()
+       }
+       this.clienteService.create(client).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this));
+    });  
+  }  
 }

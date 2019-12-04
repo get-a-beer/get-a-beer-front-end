@@ -8,7 +8,7 @@ import { Login } from '../../model/login';
 import { Socialusers } from '../../model/socialUsers';
 import { JwtToken } from 'src/app/model/jwtToken';
 import { AuthService } from 'angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';  
+import { GoogleLoginProvider } from 'angularx-social-login';  
 
 @Component({
   selector: 'app-login',
@@ -55,16 +55,16 @@ export class LoginComponent implements OnInit {
 
   public socialSignIn(socialProvider: string) {  
     let socialPlatformProvider;  
-    if (socialProvider === 'facebook') {  
-      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;  
-    } else if (socialProvider === 'google') {  
+    if (socialProvider === 'google') {  
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;  
     }  
     this.OAuth.signIn(socialPlatformProvider).then(socialusers => {  
-      console.log(socialProvider, socialusers);  
-      console.log(socialusers);  
-      //this.Savesresponse(socialusers); 
-      this.router.navigate(['home']);
+       
+      const login: Login = {
+        username: socialusers.email,
+        password: socialusers.id
+      }
+      this.auth.login(login).subscribe(this.redirectHandler.bind(this), this.errorHandler.bind(this));
     });  
   }  
 
